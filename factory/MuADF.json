@@ -1,0 +1,9 @@
+{
+	"name": "MuADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "946ea1dc-c78f-40bc-9cad-3bb98bb63e17",
+		"tenantId": "bf4c2605-429d-41cb-bdf2-ab05aa01a90f"
+	}
+}
