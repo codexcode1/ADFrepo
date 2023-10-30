@@ -51,10 +51,16 @@
 			}
 		],
 		"parameters": {
+			"pp_filesystem": {
+				"type": "string"
+			},
+			"pp_Directoryin": {
+				"type": "string"
+			},
 			"pp_filename": {
 				"type": "string"
 			},
-			"pp_Directory": {
+			"pp_Directoryout": {
 				"type": "string"
 			}
 		},
