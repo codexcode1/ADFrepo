@@ -168,6 +168,14 @@
 							"DS_filesystem": {
 								"value": "@pipeline().parameters.pp_filesystem",
 								"type": "Expression"
+							},
+							"DS_directory": {
+								"value": "@pipeline().parameters.pp_archive",
+								"type": "Expression"
+							},
+							"DS_filename": {
+								"value": "@pipeline().parameters.pp_filename",
+								"type": "Expression"
 							}
 						}
 					}
