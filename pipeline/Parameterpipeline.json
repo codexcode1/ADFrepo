@@ -1,6 +1,14 @@
 {
 	"name": "Parameterpipeline",
 	"properties": {
+		"parameters": {
+			"pp_filename": {
+				"type": "string"
+			},
+			"pp_Directory": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
