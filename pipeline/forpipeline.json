@@ -141,7 +141,10 @@
 											"type": "Expression"
 										},
 										"DS_directory": "Project/Output",
-										"DS_filename": "@item.name()"
+										"DS_filename": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
 									}
 								}
 							]
