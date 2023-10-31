@@ -149,7 +149,11 @@
 														"value": "@pipeline().parameters.pp_filesystem",
 														"type": "Expression"
 													},
-													"DS_directory": "Project/Output/CSVFolder"
+													"DS_directory": "Project/Output/CSVFolder",
+													"DS_filename": {
+														"value": "@item().name",
+														"type": "Expression"
+													}
 												}
 											}
 										]
