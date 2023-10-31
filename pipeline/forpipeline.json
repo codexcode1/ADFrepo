@@ -69,87 +69,38 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Copy data1",
-							"type": "Copy",
+							"name": "If Condition1",
+							"type": "IfCondition",
 							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
 							"userProperties": [],
 							"typeProperties": {
-								"source": {
-									"type": "DelimitedTextSource",
-									"storeSettings": {
-										"type": "AzureBlobFSReadSettings",
-										"recursive": true,
-										"enablePartitionDiscovery": false
-									},
-									"formatSettings": {
-										"type": "DelimitedTextReadSettings"
-									}
+								"expression": {
+									"value": "@endswith(item().name,'txt')",
+									"type": "Expression"
 								},
-								"sink": {
-									"type": "DelimitedTextSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "DelimitedTextWriteSettings",
-										"quoteAllText": true,
-										"fileExtension": ".txt"
-									}
-								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "para_data_set",
-									"type": "DatasetReference",
-									"parameters": {
-										"DS_filesystem": {
-											"value": "@pipeline().parameters.pp_filesystem",
-											"type": "Expression"
-										},
-										"DS_directory": {
-											"value": "@pipeline().parameters.pp_Directoryin",
-											"type": "Expression"
-										},
-										"DS_filename": {
-											"value": "@item().name",
-											"type": "Expression"
+								"ifFalseActivities": [
+									{
+										"name": "Falsewait",
+										"type": "Wait",
+										"dependsOn": [],
+										"userProperties": [],
+										"typeProperties": {
+											"waitTimeInSeconds": 1
 										}
 									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "para_data_set",
-									"type": "DatasetReference",
-									"parameters": {
-										"DS_filesystem": {
-											"value": "@pipeline().parameters.pp_filesystem",
-											"type": "Expression"
-										},
-										"DS_directory": "Project/Output",
-										"DS_filename": {
-											"value": "@item().name",
-											"type": "Expression"
+								],
+								"ifTrueActivities": [
+									{
+										"name": "Wait1",
+										"type": "Wait",
+										"dependsOn": [],
+										"userProperties": [],
+										"typeProperties": {
+											"waitTimeInSeconds": 2
 										}
 									}
-								}
-							]
+								]
+							}
 						}
 					]
 				}
