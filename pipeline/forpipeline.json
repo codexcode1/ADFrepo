@@ -136,6 +136,10 @@
 													"DS_directory": {
 														"value": "@pipeline().parameters.pp_Directoryin",
 														"type": "Expression"
+													},
+													"DS_filename": {
+														"value": "@item().name",
+														"type": "Expression"
 													}
 												}
 											}
