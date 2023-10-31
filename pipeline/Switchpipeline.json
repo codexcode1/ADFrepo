@@ -1,0 +1,65 @@
+{
+	"name": "Switchpipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Get Metadata1",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "para_data_set",
+						"type": "DatasetReference",
+						"parameters": {
+							"DS_filesystem": {
+								"value": "@pipeline().parameters.switch_filesystem",
+								"type": "Expression"
+							},
+							"DS_directory": {
+								"value": "@pipeline().parameters.switch_dir",
+								"type": "Expression"
+							},
+							"DS_filename": {
+								"value": "@pipeline().parameters.switch_filename",
+								"type": "Expression"
+							}
+						}
+					},
+					"fieldList": [
+						"childItems",
+						"columnCount",
+						"itemName",
+						"itemType"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"switch_filesystem": {
+				"type": "String"
+			},
+			"switch_dir": {
+				"type": "String"
+			},
+			"switch_filename": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
