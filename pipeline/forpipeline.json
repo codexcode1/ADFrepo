@@ -143,7 +143,14 @@
 										"outputs": [
 											{
 												"referenceName": "para_data_set",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"DS_filesystem": {
+														"value": "@pipeline().parameters.pp_filesystem",
+														"type": "Expression"
+													},
+													"DS_directory": "Project/Output/CSVFolder"
+												}
 											}
 										]
 									}
