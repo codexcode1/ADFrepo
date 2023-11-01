@@ -235,10 +235,7 @@
 																"value": "@pipeline().parameters.switch_filesystem",
 																"type": "Expression"
 															},
-															"DS_directory": {
-																"value": "@pipeline().parameters.switch_dir",
-																"type": "Expression"
-															},
+															"DS_directory": "Project/Output/CSVFolder",
 															"DS_filename": "@item().name"
 														}
 													}
@@ -247,13 +244,110 @@
 										]
 									},
 									{
-										"value": "xml"
+										"value": "xml",
+										"activities": [
+											{
+												"name": "Copy data3",
+												"type": "Copy",
+												"dependsOn": [],
+												"policy": {
+													"timeout": "0.12:00:00",
+													"retry": 0,
+													"retryIntervalInSeconds": 30,
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"enableStaging": false
+												}
+											}
+										]
+									},
+									{
+										"value": "Json",
+										"activities": [
+											{
+												"name": "Copy data4",
+												"type": "Copy",
+												"dependsOn": [],
+												"policy": {
+													"timeout": "0.12:00:00",
+													"retry": 0,
+													"retryIntervalInSeconds": 30,
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"source": {
+														"type": "DelimitedTextSource",
+														"storeSettings": {
+															"type": "AzureBlobFSReadSettings",
+															"recursive": true,
+															"enablePartitionDiscovery": false
+														},
+														"formatSettings": {
+															"type": "DelimitedTextReadSettings"
+														}
+													},
+													"sink": {
+														"type": "DelimitedTextSink",
+														"storeSettings": {
+															"type": "AzureBlobFSWriteSettings"
+														},
+														"formatSettings": {
+															"type": "DelimitedTextWriteSettings",
+															"quoteAllText": true,
+															"fileExtension": ".txt"
+														}
+													},
+													"enableStaging": false,
+													"translator": {
+														"type": "TabularTranslator",
+														"typeConversion": true,
+														"typeConversionSettings": {
+															"allowDataTruncation": true,
+															"treatBooleanAsNumber": false
+														}
+													}
+												},
+												"inputs": [
+													{
+														"referenceName": "para_data_set",
+														"type": "DatasetReference",
+														"parameters": {
+															"DS_filesystem": {
+																"value": "@pipeline().parameters.switch_filesystem",
+																"type": "Expression"
+															},
+															"DS_directory": {
+																"value": "@pipeline().parameters.switch_dir",
+																"type": "Expression"
+															},
+															"DS_filename": "@item().name"
+														}
+													}
+												],
+												"outputs": [
+													{
+														"referenceName": "para_data_set",
+														"type": "DatasetReference",
+														"parameters": {
+															"DS_filesystem": {
+																"value": "@pipeline().parameters.switch_filesystem",
+																"type": "Expression"
+															},
+															"DS_directory": "Project/Output/JsonFolder",
+															"DS_filename": "@item().name"
+														}
+													}
+												]
+											}
+										]
 									},
 									{
 										"value": "jpg"
-									},
-									{
-										"value": "png"
 									}
 								]
 							}
