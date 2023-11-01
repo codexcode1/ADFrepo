@@ -54,7 +54,8 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"DS_filesystem": "adlsgen2container",
-							"DS_directory": "Project/Output/"
+							"DS_directory": "Project/Output/",
+							"DS_filename": "salesLTsql.txt"
 						}
 					}
 				]
