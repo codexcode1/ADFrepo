@@ -19,9 +19,18 @@
 						"referenceName": "para_data_set",
 						"type": "DatasetReference",
 						"parameters": {
-							"DS_filesystem": "@pipeline().parameters.pp_filesystem",
-							"DS_directory": "@pipeline().parameters.pp_Directoryin",
-							"DS_filename": "@pipeline().parameters.pp_filename"
+							"DS_filesystem": {
+								"value": "@pipeline().parameters.switch_filesystem",
+								"type": "Expression"
+							},
+							"DS_directory": {
+								"value": "@pipeline().parameters.switch_dir",
+								"type": "Expression"
+							},
+							"DS_filename": {
+								"value": "@pipeline().parameters.switch_filename",
+								"type": "Expression"
+							}
 						}
 					},
 					"fieldList": [
