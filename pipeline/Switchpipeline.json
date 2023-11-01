@@ -81,6 +81,18 @@
 								"cases": [
 									{
 										"value": "txt"
+									},
+									{
+										"value": "csv"
+									},
+									{
+										"value": "xml"
+									},
+									{
+										"value": "jpg"
+									},
+									{
+										"value": "png"
 									}
 								]
 							}
