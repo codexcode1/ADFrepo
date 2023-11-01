@@ -259,8 +259,69 @@
 												},
 												"userProperties": [],
 												"typeProperties": {
-													"enableStaging": false
-												}
+													"source": {
+														"type": "DelimitedTextSource",
+														"storeSettings": {
+															"type": "AzureBlobFSReadSettings",
+															"recursive": true,
+															"enablePartitionDiscovery": false
+														},
+														"formatSettings": {
+															"type": "DelimitedTextReadSettings"
+														}
+													},
+													"sink": {
+														"type": "DelimitedTextSink",
+														"storeSettings": {
+															"type": "AzureBlobFSWriteSettings"
+														},
+														"formatSettings": {
+															"type": "DelimitedTextWriteSettings",
+															"quoteAllText": true,
+															"fileExtension": ".txt"
+														}
+													},
+													"enableStaging": false,
+													"translator": {
+														"type": "TabularTranslator",
+														"typeConversion": true,
+														"typeConversionSettings": {
+															"allowDataTruncation": true,
+															"treatBooleanAsNumber": false
+														}
+													}
+												},
+												"inputs": [
+													{
+														"referenceName": "para_data_set",
+														"type": "DatasetReference",
+														"parameters": {
+															"DS_filesystem": {
+																"value": "@pipeline().parameters.switch_filesystem",
+																"type": "Expression"
+															},
+															"DS_directory": {
+																"value": "@pipeline().parameters.switch_dir",
+																"type": "Expression"
+															},
+															"DS_filename": "@item().name"
+														}
+													}
+												],
+												"outputs": [
+													{
+														"referenceName": "para_data_set",
+														"type": "DatasetReference",
+														"parameters": {
+															"DS_filesystem": {
+																"value": "@pipeline().parameters.switch_filesystem",
+																"type": "Expression"
+															},
+															"DS_directory": "Project/Output/XMLFolder",
+															"DS_filename": "@item().name"
+														}
+													}
+												]
 											}
 										]
 									},
