@@ -326,7 +326,7 @@
 										]
 									},
 									{
-										"value": "Json",
+										"value": "json",
 										"activities": [
 											{
 												"name": "Copy data4",
