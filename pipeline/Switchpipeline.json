@@ -35,7 +35,7 @@
 					},
 					"fieldList": [
 						"childItems",
-						"columnCount",
+						"lastModified",
 						"itemName",
 						"itemType"
 					],
