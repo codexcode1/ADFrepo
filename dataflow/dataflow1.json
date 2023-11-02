@@ -13,10 +13,17 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "filter1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
-				"          ProductID as string,",
+				"          ProductID as integer,",
 				"          Name as string,",
 				"          ProductNumber as string,",
 				"          Color as string,",
@@ -34,9 +41,19 @@
 				"          rowguid as string,",
 				"          ModifiedDate as string",
 				"     ),",
-				"     allowSchemaDrift: true,",
+				"     allowSchemaDrift: false,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1"
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 select(mapColumn(",
+				"          ProductID,",
+				"          Name,",
+				"          ProductNumber,",
+				"          rowguid,",
+				"          ModifiedDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 filter(ProductNumber>700) ~> filter1"
 			]
 		}
 	}
