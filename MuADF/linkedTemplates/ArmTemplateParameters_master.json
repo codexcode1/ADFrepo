@@ -17,6 +17,15 @@
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://samuthuadlsgen2.dfs.core.windows.net/"
 		},
+		"trigger1_properties_forpipeline_parameters_pp_filesystem": {
+			"value": "adlsgen2container"
+		},
+		"trigger1_properties_forpipeline_parameters_pp_Directoryin": {
+			"value": "Project/Input"
+		},
+		"trigger1_properties_forpipeline_parameters_pp_filename": {
+			"value": "CS1.csv"
+		},
 		"containerUri": {
 			"value": ""
 		},

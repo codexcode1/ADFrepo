@@ -23,6 +23,18 @@
 			"type": "string",
 			"defaultValue": "https://samuthuadlsgen2.dfs.core.windows.net/"
 		},
+		"trigger1_properties_forpipeline_parameters_pp_filesystem": {
+			"type": "string",
+			"defaultValue": "adlsgen2container"
+		},
+		"trigger1_properties_forpipeline_parameters_pp_Directoryin": {
+			"type": "string",
+			"defaultValue": "Project/Input"
+		},
+		"trigger1_properties_forpipeline_parameters_pp_filename": {
+			"type": "string",
+			"defaultValue": "CS1.csv"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -61,6 +73,15 @@
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"trigger1_properties_forpipeline_parameters_pp_filesystem": {
+						"value": "[parameters('trigger1_properties_forpipeline_parameters_pp_filesystem')]"
+					},
+					"trigger1_properties_forpipeline_parameters_pp_Directoryin": {
+						"value": "[parameters('trigger1_properties_forpipeline_parameters_pp_Directoryin')]"
+					},
+					"trigger1_properties_forpipeline_parameters_pp_filename": {
+						"value": "[parameters('trigger1_properties_forpipeline_parameters_pp_filename')]"
 					}
 				}
 			},

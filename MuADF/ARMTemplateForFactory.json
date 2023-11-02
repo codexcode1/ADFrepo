@@ -22,6 +22,18 @@
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://samuthuadlsgen2.dfs.core.windows.net/"
+		},
+		"trigger1_properties_forpipeline_parameters_pp_filesystem": {
+			"type": "string",
+			"defaultValue": "adlsgen2container"
+		},
+		"trigger1_properties_forpipeline_parameters_pp_Directoryin": {
+			"type": "string",
+			"defaultValue": "Project/Input"
+		},
+		"trigger1_properties_forpipeline_parameters_pp_filename": {
+			"type": "string",
+			"defaultValue": "CS1.csv"
 		}
 	},
 	"variables": {
@@ -1752,6 +1764,41 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "forpipeline",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"pp_filesystem": "[parameters('trigger1_properties_forpipeline_parameters_pp_filesystem')]",
+							"pp_Directoryin": "[parameters('trigger1_properties_forpipeline_parameters_pp_Directoryin')]",
+							"pp_filename": "[parameters('trigger1_properties_forpipeline_parameters_pp_filename')]"
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2023-11-03T22:25:00",
+						"timeZone": "India Standard Time",
+						"schedule": {}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/forpipeline')]"
+			]
 		}
 	]
 }
