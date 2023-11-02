@@ -53,7 +53,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				"select1 filter(ProductNumber>700) ~> filter1"
+				"select1 filter(ProductID>700) ~> filter1"
 			]
 		}
 	}
