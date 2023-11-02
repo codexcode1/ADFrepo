@@ -8,6 +8,10 @@
 				"pipelineReference": {
 					"referenceName": "forpipeline",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"pp_filesystem": "adlsgen2container",
+					"pp_Directoryin": "Project/Input"
 				}
 			}
 		],
@@ -16,7 +20,7 @@
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2023-11-03T22:12:00",
+				"startTime": "2023-11-03T22:21:00",
 				"timeZone": "India Standard Time"
 			}
 		}
