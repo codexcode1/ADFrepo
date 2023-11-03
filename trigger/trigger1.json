@@ -3,19 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "forpipeline",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"pp_filesystem": "adlsgen2container",
-					"pp_Directoryin": "Project/Input",
-					"pp_filename": "CS1.csv"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
