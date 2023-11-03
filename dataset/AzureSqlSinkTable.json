@@ -1,0 +1,22 @@
+{
+	"name": "AzureSqlSinkTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "[SalesLT]",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "[DemoTable]",
+				"type": "Expression"
+			}
+		}
+	}
+}
