@@ -1,0 +1,12 @@
+{
+	"name": "AzureSynapseArtifacts1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSynapseArtifacts",
+		"typeProperties": {
+			"endpoint": "https://synapsemuthu.dev.azuresynapse.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/862e5257-e363-49e3-b1ca-e637c3a199ec/resourceGroups/RG-DEV-RESOURCES/providers/Microsoft.Synapse/workspaces/synapsemuthu"
+		}
+	}
+}
