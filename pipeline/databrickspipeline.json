@@ -18,7 +18,7 @@
 					"notebookPath": "/Users/m.muthukumaran1@gmail.com/1_Notebook"
 				},
 				"linkedServiceName": {
-					"referenceName": "AzureDatabricks1",
+					"referenceName": "AzureDatabricks2",
 					"type": "LinkedServiceReference"
 				}
 			}
